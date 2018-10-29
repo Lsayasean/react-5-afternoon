@@ -1,5 +1,7 @@
 import React,  { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
+import {updateCity} from './../../ducks/reducer';
 
 class WizardTwo extends Component {
     render(){
@@ -18,4 +20,14 @@ class WizardTwo extends Component {
     }
 }
 
-export default WizardTwo;
+function stateToProps(reduxState){
+    return{
+        city: reduxState.city
+    }
+}
+
+const DispatchToProps = {
+    updateCity
+}
+
+export default connect(stateToProps, DispatchToProps)(WizardTwo);

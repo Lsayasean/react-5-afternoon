@@ -1,5 +1,7 @@
 import React,  { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
+import {updateHistory} from './../../ducks/reducer'
 
 class WizardEight extends Component {
 
@@ -20,4 +22,10 @@ class WizardEight extends Component {
     }
 }
 
-export default WizardEight;
+function stateToProps(state){
+    return{
+        history: state.history
+    }
+}
+
+export default connect(stateToProps, updateHistory)(WizardEight);
